@@ -1,13 +1,6 @@
 import ServerList from "./server-list.tsx";
 import DirectMessageList from "./direct-message-list.tsx";
 
-const mainLayout = {
-    display: "flex",
-    flexDirection: "row",
-};
-
-
-
 const servers = [
     {
         'name': 'server1',
@@ -49,7 +42,8 @@ const directMessages = [
 ]
 export default function Sidebar() {
     return (
-        <div style={mainLayout}>
+
+        <div className="flex flex-row">
             <div id="servers">
                 <ServerList servers={servers}/>
             </div>

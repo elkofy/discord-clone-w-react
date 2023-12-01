@@ -1,5 +1,7 @@
 import './App.css'
 import Sidebar from "./components/sidebar.tsx";
+import Header from "./components/header.tsx";
+
 
 
 const appStyle = {
@@ -9,18 +11,13 @@ const appStyle = {
     'height': '100vh',
 }
 
-const mainLayout = {
-    display: "flex",
-    width: "100%",
-    flexDirection: "column",
-};
-
 function App() {
     return (
         <>
             <div style={appStyle} >
                 <Sidebar/>
-                <div style={mainLayout} >
+                <div className="flex flex-col w-full" >
+                    <Header title='Amis'/>
                     <h1>Content</h1>
                 </div>
             </div>
