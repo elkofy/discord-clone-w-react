@@ -1,4 +1,6 @@
-export default function ServerList({servers}) {
+import {Servers} from "../ts/types/props_types.ts";
+
+export default function ServerList({servers}:Servers) {
     return (
         <>
             <ul className="menu flex flex-col gap-2 pt-2 px-4 bg-accent-content h-full">

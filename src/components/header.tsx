@@ -1,4 +1,8 @@
-export default function Header({title}) {
+type Props = {
+    title: string,
+}
+
+export default function Header({title}:Props) {
     return (
         <div className="flex flex-row w-full gap-1 items-center px-4">
             <i className="material-icons text-3xl">people</i>

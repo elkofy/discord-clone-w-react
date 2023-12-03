@@ -8,13 +8,21 @@ import {
 } from "react-router-dom";
 
 import ErrorPage from "./views/error-page";
+import ChatPage from "./views/chat-page.tsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
         errorElement: <ErrorPage />,
+        children: [
+            {
+                path: "chat/:id",
+                element: <ChatPage />,
+            },
+        ],
     },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

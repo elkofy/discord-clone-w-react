@@ -1,7 +1,10 @@
-export default function DirectMessageList({directMessages}) {
+import {DirectMessages} from "../ts/types/props_types.ts";
+import {Link} from "react-router-dom";
+
+export default function DirectMessageList({directMessages}:DirectMessages) {
     return (
         <>
-            <div className="h-full">
+            <div className="h-screen bg-base-200">
                 <div className="bg-base-200 py-2 px-3 drop-shadow-lg">
                     <input type="text" placeholder="Search or Start a conversation"
                            className="input input-bordered input-primary h-6 w-48 pl-2"/>
@@ -48,10 +51,12 @@ export default function DirectMessageList({directMessages}) {
                     <p className="text-xs font-bold">DIRECT MESSAGES</p>
                     <p className="text-lg font-regular">+</p>
                 </div>
-                <ul className="menu bg-base-200 w-56 h-full">
+                <ul className="menu bg-base-200 w-56">
                     {directMessages.map((object: { icon: string | undefined; name: string; numberOfMembers: number }) =>
                         <li>
                             <div>
+                                <Link to={`chat/${object.name}`}>
+
                                 <div className="avatar">
                                     <div className="w-8 rounded-full">
                                         <img src={object.icon} alt='server'/>
@@ -61,6 +66,8 @@ export default function DirectMessageList({directMessages}) {
                                     <p className="text-base">{object.name}</p>
                                     <p className="text-xs">{object.numberOfMembers > 1 ? `${object.numberOfMembers} membres` : ''}  </p>
                                 </div>
+                                </Link>
+
                             </div>
                         </li>)}
                 </ul>
