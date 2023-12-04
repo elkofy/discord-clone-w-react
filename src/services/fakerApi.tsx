@@ -7,7 +7,7 @@ import {getCurrentUser, getRandomInt} from "../ts/utils/utils.ts";
 
 // or, if desiring a different locale
 // import { fakerDE as faker } from '@faker-js/faker';
-
+faker.seed(437)
 export function createRandomUser(): User {
     return {
         _id: faker.string.uuid(),
@@ -40,11 +40,10 @@ export function createRandomChat(): Chat {
         icon: faker.image.url(),
         users: createUsers(),
     };
+
     chat.name= (chat?.users as User[]).filter(function(user) { return user.username !== getCurrentUser().username; })[0].username
     chat.numberOfMembers = (chat?.users as User[]).length ?? 1;
-
     chat.messages = createConversations(chat.users as User[]);
-
 
     return chat as unknown as Chat;
 }
@@ -58,11 +57,11 @@ export function createRandomMessage(): Message {
     }
 }
 
-export function createMessageFromUser(user: User): Message {
+export function createMessageFromUser(user: User, text?: string): Message {
     return {
         _id: faker.string.uuid(),
         user: user,
-        text: faker.word.words({count: {min: 5, max: 10}}),
+        text: text ?? faker.word.words({count: {min: 5, max: 10}}),
         date: faker.date.recent(),
     }
 }

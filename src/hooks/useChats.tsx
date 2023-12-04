@@ -9,10 +9,18 @@ export const useChats = () => {
     useMountEffect(() => {
         (async () => {
                 // console.log(chats.chats)
-            if (!chats){
-                setChats(createChats())
 
+            if (localStorage.getItem('Chats'))
+            {
+                const localChats = JSON.parse(localStorage.getItem('Chats'))
+                 setChats(localChats);
             }
+            else{
+                let chatsObj = createChats()
+                setChats(chatsObj)
+                localStorage.setItem('Chats',JSON.stringify(chatsObj));
+            }
+
         })();
     })
 

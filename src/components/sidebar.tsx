@@ -3,16 +3,11 @@ import DirectMessageList from "./direct-message-list.tsx";
 import {createChats, createServers} from "../services/fakerApi.tsx";
 import {useChats} from "../hooks/useChats.tsx";
 
-
-
-
-
 export default function Sidebar() {
     const servers = createServers()
-    const directMessages =createChats();
-    console.log(directMessages)
-    console.log(useChats())
-    console.log(useChats())
+    const message = useChats()
+    const directMessages = message.chats ?? createChats()
+
     return (
 
         <div className="flex flex-row">

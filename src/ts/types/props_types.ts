@@ -1,7 +1,10 @@
+import {Server} from "../interfaces/Server.ts";
+import {Chat} from "../interfaces/Chat.ts";
+
 export type DirectMessages = {
-    directMessages: never[];
+    directMessages: Chat[];
 }
 
 export type Servers ={
-    servers: never[];
+    servers: Server[];
 }

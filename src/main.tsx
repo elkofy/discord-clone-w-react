@@ -9,6 +9,7 @@ import {
 
 import ErrorPage from "./views/error-page";
 import ChatPage from "./views/chat-page.tsx";
+import ServerPage from "./views/server-page.tsx";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: "chat/:id",
                 element: <ChatPage />,
+            },
+            {
+                path: "servers/:id",
+                element: <ServerPage />,
             },
         ],
     },

@@ -1,7 +1,6 @@
 import './App.css'
 import Sidebar from "./components/sidebar.tsx";
-import Header from "./components/header.tsx";
-import {Outlet} from "react-router-dom";
+import {Outlet, useLocation} from "react-router-dom";
 import {useUser} from "./hooks/useUser.tsx";
 
 
@@ -14,7 +13,6 @@ function App() {
                 {user.username}
                 <Sidebar/>
                 <div className="flex flex-col w-full" >
-                    <Header title='Amis'/>
                     <Outlet />
                 </div>
             </div>
