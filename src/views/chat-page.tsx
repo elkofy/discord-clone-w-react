@@ -17,7 +17,6 @@ export default function ChatPage() {
     }
     const onKeyPress = (event: any) => {
         if (event.code == "Enter") {
-            console.log('Hi')
             chat.messages.push(createMessageFromUser(user.user, message))
             setMessage('')
         }
@@ -27,7 +26,7 @@ export default function ChatPage() {
         <>
             <Header title="Amis"/>
             <div className="flex flex-col h-full justify-between">
-                <div className="max-h-[80%] overflow-auto">
+                <div className="max-h-[80vh] overflow-auto">
                     {chat.messages.map((object: Message) =>
                         <div
                             className={`chat ${user.user?.username == object.user.username ? 'chat-end' : 'chat-start'}`}>

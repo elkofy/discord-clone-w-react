@@ -8,8 +8,6 @@ export const useChats = () => {
     const [chats, setChats] = useState<Chat[]>()
     useMountEffect(() => {
         (async () => {
-                // console.log(chats.chats)
-
             if (localStorage.getItem('Chats'))
             {
                 const localChats = JSON.parse(localStorage.getItem('Chats'))

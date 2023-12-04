@@ -1,4 +1,4 @@
-import {Link, useLocation, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import Header from "../components/header.tsx";
 import {createMessageFromUser, createRandomChat, createRandomUser} from "../services/fakerApi.tsx";
 import {useEffect, useState} from "react";
@@ -36,12 +36,11 @@ export default function ServerPage() {
         }
     }
     useEffect(() => {
-        // Code here will run after *every* render
     }, [currentChannel]);
     return (
         <>
             <Header title={params.id}/>
-            <div className="grid grid-cols-main-frame">
+            <div className="grid grid-cols-main-frame h-full">
                 <div>
                     <ul className="menu  flex flex-col gap-2 pt-2 px-4 h-full">
                         {
@@ -60,8 +59,8 @@ export default function ServerPage() {
 
 
                 </div>
-                <div>
-                    <div className="max-h-[80%] overflow-auto">
+                <div className="flex flex-col h-full justify-between">
+                    <div className="max-h-[85vh] overflow-auto">
                         {currentChannel.messages.map((object: Message) =>
                             <div
                                 className={`chat chat-end`}>

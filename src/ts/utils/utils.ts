@@ -8,7 +8,6 @@ export function getCurrentUser ():User {
     }
     catch (error)
     {
-        console.log('no user detected ? guest is here');
         return createCurrentUser();
     }
 
